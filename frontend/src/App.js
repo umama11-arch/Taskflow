@@ -9,14 +9,14 @@ import Sidebar from './sidebar';
 // ';
 function App() {
   const [todaytasks, setTodayTasks] = useState([]);
-  const [timervalue, settimervalue] = useState("");
+  // const [timervalue, settimervalue] = useState("");
   const [page, setPage] = useState("task");
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
   const [time, settime] = useState("")
-  const [editid, seteditid] = useState("")
+  // const [editid, seteditid] = useState("")
   const [priority, setpriority] = useState("Medium")
   const [category, setcategory] = useState("")
   const [search, setsearch] = useState("");
