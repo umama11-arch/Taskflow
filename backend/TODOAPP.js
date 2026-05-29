@@ -21,6 +21,9 @@ const connectdb = async () => {
     console.log("DB connected")
   } catch (error) {
     console.log("Not connected ", error)
+
+
+    
   }
 }
 
