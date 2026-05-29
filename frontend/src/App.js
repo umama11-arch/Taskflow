@@ -195,12 +195,12 @@ function App() {
   }
   // const todaytasks=gettodaytask()
 
-  useEffect(() => {
-    if (isloginuser) {
-      displaytask();
-      gettodaytask();
-    }
-  }, [isloginuser]);
+ useEffect(() => {
+  if (isloginuser) {
+    displaytask();
+    gettodaytask();
+  }
+}, [isloginuser, displaytask, gettodaytask]);
 
   localStorage.setItem("isloginuser", isloginuser)
   const completetasks = async (id, completed) => {
