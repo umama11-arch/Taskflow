@@ -6,7 +6,7 @@ app.use(express.json())
 
 const cors = require("cors");
 app.use(cors({
-  origin: "https://taskflow-kc7g.vercel.app/" ,                                                                                                                                                                          
+  origin: "https://vercel.com/umama-ishaq-s-projects/taskflow-kc7g/4ChihQyzV67YYhnnDE9pzkbzCUbm" ,                                                                                                                                                                          
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
