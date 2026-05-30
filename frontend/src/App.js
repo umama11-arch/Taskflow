@@ -195,13 +195,7 @@ function App() {
   }
   // const todaytasks=gettodaytask()
 
- useEffect(() => {
-  if (isloginuser) {
-    displaytask();
-    gettodaytask();
-  }
-}, [isloginuser, displaytask, gettodaytask]);
-
+  
   localStorage.setItem("isloginuser", isloginuser)
   const completetasks = async (id, completed) => {
 
@@ -214,7 +208,7 @@ function App() {
 
     await displaytask();
   }
-
+  
   const addTask = async () => {
     setLoading(true)
     await axios.post("http:////76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/addtask", {
@@ -227,20 +221,20 @@ function App() {
       reminderTime: reminderTime
     });
     toast.success("Task added successfully")
-
+    
     setTask("");
     settime("");
     // setuserid("")
     displaytask()
     setLoading(false)
   };
-
+  
 
 
   const displaytask = async () => {
     const res = await axios.get(`http:////76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app?userid=${isloginuser}`)
     setTasks(res.data);
-
+    
   }
   const deletetask = async (id) => {
     await axios.delete(`http:////76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/deletetask/${id}`);
@@ -257,7 +251,7 @@ function App() {
     setEditModal(false);
     displaytask();
   };
-
+  
   // const islogin=false;  
   const setSearchf = async () => {
     const res = await axios.get(`http:////76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/searchtask?`, {
@@ -270,13 +264,13 @@ function App() {
     setTasks(res.data)
     // console.log(res.data)
   }
-
+  
   const signout = () => {
     localStorage.removeItem("islogin")
     setislogin(false)
     // console.log("hey guys")
   }
-
+  
 
   useEffect(() => {
     const login = localStorage.getItem("islogin");
@@ -289,15 +283,23 @@ function App() {
   }, []);
   if (islogin === false) {
     return <div><Auth setislogin={setislogin}
-      setisloginuser={setisloginuser}
+    setisloginuser={setisloginuser}
     /></div>
   }
+  useEffect(() => {
+   if (isloginuser) {
+     displaytask();
+ 
+     
+     gettodaytask();
+   }
+ }, [isloginuser, displaytask, gettodaytask]);
 
-
-
+  
+  
   // const status=getTaskStatus(t)
   if (islogin === true) {
-
+    
 
     // console.log("app",islogin);
     return (
