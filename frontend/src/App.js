@@ -231,7 +231,7 @@ function App() {
   
 
 
- const displaytask = async () => {
+  const displaytask = async () => {
   const loginId = localStorage.getItem("isloginuser");
 
   if (!loginId) {
@@ -240,7 +240,7 @@ function App() {
   }
 
   const res = await axios.get(
-    `https://taskflow-production-19a1.up.railway.app/tasks`,
+    `https://taskflow-production-19a1.up.railway.app`,
     {
       params: { userid: loginId }
     }
