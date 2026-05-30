@@ -12,7 +12,7 @@ function Auth({setislogin,setisloginuser}) {
     const [loginPassword, setLoginPassword] = useState("");
     const SignUp = async () => {
         try {
-            await axios.post("https:taskflow-production-19a1.up.railway.app/auth/signup", {
+            await axios.post("https:taskflow-production-19a1.up.railway.app/signup", {
                 username: signupUsername,
                 password: signupPassword
             });
