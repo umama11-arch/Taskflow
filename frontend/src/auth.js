@@ -32,7 +32,7 @@ function Auth({setislogin,setisloginuser}) {
     const login = async () => {
         try {
             
-            const res = await axios.post("https:taskflow-production-19a1.up.railway.app/auth/login", {
+            const res = await axios.post("https://taskflow-production-19a1.up.railway.app/auth/login", {
                 username: loginUsername,
                 password: loginPassword,
             });
