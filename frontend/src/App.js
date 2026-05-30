@@ -49,7 +49,7 @@ function App() {
       try {
 
         const res = await axios.get(
-          "https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/reminders",
+          "https://taskflow-production-19a1.up.railway.app/reminders",
           {
             params: {
               userid: isloginuser
@@ -62,7 +62,7 @@ function App() {
 
           showNotification(task.task);
           await axios.patch(
-            `https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/reminders/${task._id}`
+            `https://taskflow-production-19a1.up.railway.app/reminders/${task._id}`
           );
 
         }
@@ -150,7 +150,7 @@ function App() {
 
   const getAISuggestion = async (taskText) => {
     try {
-      const res = await axios.get("https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/getaisuggestions", {
+      const res = await axios.get("https://taskflow-production-19a1.up.railway.app/getaisuggestions", {
         params: { task: taskText }
       });
 
@@ -166,7 +166,7 @@ function App() {
       setLoading(true)
       const res =
         await axios.get(
-          "https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/todaytask",
+          "https://taskflow-production-19a1.up.railway.app/todaytask",
           {
             params: {
               userid: isloginuser
@@ -200,7 +200,7 @@ function App() {
   const completetasks = async (id, completed) => {
 
     await axios.put(
-      `https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/completetask/${id}`,
+      `https://taskflow-production-19a1.up.railway.app/completetask/${id}`,
       {
         completed: !completed
       }
@@ -211,7 +211,7 @@ function App() {
   
   const addTask = async () => {
     setLoading(true)
-    await axios.post("https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/addtask", {
+    await axios.post("https://taskflow-production-19a1.up.railway.app/addtask", {
       task: task,
       time: time,
       priority: priority,
@@ -232,18 +232,18 @@ function App() {
 
 
   const displaytask = async () => {
-    const res = await axios.get(`https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app?userid=${isloginuser}`)
+    const res = await axios.get(`https://taskflow-production-19a1.up.railway.app?userid=${isloginuser}`)
     setTasks(res.data);
     
   }
   const deletetask = async (id) => {
-    await axios.delete(`https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/deletetask/${id}`);
+    await axios.delete(`https://taskflow-production-19a1.up.railway.app/deletetask/${id}`);
     toast.success("Task deleted")
     displaytask();
   }
 
   const updateTask = async () => {
-    await axios.put(`https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/updatetask/${currentId}`, {
+    await axios.put(`https://taskflow-production-19a1.up.railway.app/updatetask/${currentId}`, {
       task: editTask,
       time: editTime
     });
@@ -254,7 +254,7 @@ function App() {
   
   // const islogin=false;  
   const setSearchf = async () => {
-    const res = await axios.get(`https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/searchtask?`, {
+    const res = await axios.get(`https://taskflow-production-19a1.up.railway.app/searchtask?`, {
       params: {
         query: search,
         userid: isloginuser
