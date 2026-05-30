@@ -232,7 +232,7 @@ function App() {
 
 
   const displaytask = async () => {
-    const res = await axios.get(`https://taskflow-production-19a1.up.railway.app?userid=${isloginuser}`)
+    const res = await axios.get(`https://taskflow-production-19a1.up.railway.app/displaytask?userid=${isloginuser}`)
     setTasks(res.data);
   }
   const deletetask = async (id) => {
