@@ -12,7 +12,7 @@ function Auth({setislogin,setisloginuser}) {
     const [loginPassword, setLoginPassword] = useState("");
     const SignUp = async () => {
         try {
-            await axios.post("https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/auth/signup", {
+            await axios.post("https://749fe377-0dac-40bc-b969-bee11c6d440f.up.railway.app/auth/signup", {
                 username: signupUsername,
                 password: signupPassword
             });
@@ -32,7 +32,7 @@ function Auth({setislogin,setisloginuser}) {
     const login = async () => {
         try {
             
-            const res = await axios.post("https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app/auth/login", {
+            const res = await axios.post("https://749fe377-0dac-40bc-b969-bee11c6d440f.up.railway.app/auth/login", {
                 username: loginUsername,
                 password: loginPassword,
             });
