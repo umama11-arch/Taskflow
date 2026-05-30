@@ -281,11 +281,6 @@ function App() {
       setisloginuser(userid);
     }
   }, []);
-  if (islogin === false) {
-    return <div><Auth setislogin={setislogin}
-    setisloginuser={setisloginuser}
-    /></div>
-  }
   useEffect(() => {
    if (isloginuser) {
      displaytask();
@@ -294,6 +289,11 @@ function App() {
      gettodaytask();
    }
  }, [isloginuser, displaytask, gettodaytask]);
+  if (islogin === false) {
+    return <div><Auth setislogin={setislogin}
+    setisloginuser={setisloginuser}
+    /></div>
+  }
 
   
   
