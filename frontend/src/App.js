@@ -232,22 +232,9 @@ function App() {
 
 
   const displaytask = async () => {
-  const loginId = localStorage.getItem("isloginuser");
-
-  if (!loginId) {
-    console.log("loginId missing");
-    return;
+    const res = await axios.get(`https://taskflow-production-19a1.up.railway.app?userid=${isloginuser}`)
+    setTasks(res.data);
   }
-
-  const res = await axios.get(
-    `https://taskflow-production-19a1.up.railway.app`,
-    {
-      params: { userid: loginId }
-    }
-  );
-
-  setTasks(res.data);
-};
   const deletetask = async (id) => {
     await axios.delete(`https://taskflow-production-19a1.up.railway.app/deletetask/${id}`);
     toast.success("Task deleted")
@@ -279,6 +266,7 @@ function App() {
   
   const signout = () => {
     localStorage.removeItem("islogin")
+    localStorage.removeItem("isloginuser")
     setislogin(false)
     // console.log("hey guys")
   }
@@ -296,9 +284,8 @@ function App() {
   useEffect(() => {
    if (isloginuser) {
      displaytask();
- 
-     
      gettodaytask();
+     console.log(isloginuser)
    }
  }, [isloginuser, displaytask, gettodaytask]);
   if (islogin === false) {
