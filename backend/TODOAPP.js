@@ -6,7 +6,7 @@ app.use(express.json())
 
 const cors = require("cors");
 app.use(cors({
-  origin: "http://localhost:3000                                                                                                                                                                                        ",
+  origin: "https://76d746d1-9c5d-494e-a519-516ce5f4f920.up.railway.app" ,                                                                                                                                                                          
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
