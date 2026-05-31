@@ -59,7 +59,7 @@ function Auth({setislogin,setisloginuser}) {
     };
 
     return (
-        <div>
+        <div className="auth-page">
             <div className="loginorsignup">
 
 <h1>TO DO APP </h1>
